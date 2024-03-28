@@ -7,7 +7,7 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "React Portfolio Website",
+    title: "Portfolio Website",
     description:
       "Portfolio website created using Nextjs and Tailwind CSS to showcase my work and projects",
     image: "/images/projects/1.png",
@@ -17,13 +17,13 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "E-Commerce Application",
+    title: "E-Learning Platform",
     description:
-      "Fully Responsive E-commerce application created using MERN stack",
-    image: "/images/projects/2.png",
+      "Fully Responsive E-learning Platform created using Django, HTML, CSS, and JavaScript created for a non-profit organisaion.",
+    image: "/images/projects/7.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/Francis-JSM/E---Learn",
+    previewUrl: "https://anhad.org.in/",
   },
   {
     id: 3,
@@ -38,12 +38,12 @@ const projectsData = [
   {
     id: 4,
     title: "Space-VOYAGE",
-    description: "Project 4 description",
+    description:
+      "A project that uses the NASA API to fetch images from the rovers/satellites from various sources. It's a treat for space enthusiasts.",
     image: "/images/projects/4.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/dishantsharma7/SPACE_VOYAGE",
-    previewUrl:
-      "https://space-voyage-luw803noh-dishant-sharmas-projects.vercel.app/",
+    previewUrl: "https://space-voyage-pi.vercel.app/",
   },
   {
     id: 5,
