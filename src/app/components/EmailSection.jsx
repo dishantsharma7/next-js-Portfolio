@@ -5,39 +5,34 @@ import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import XIcon from "../../../public/x-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import emailjs from "emailjs-com"; // Import EmailJS library
 
+const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
+const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+const userId = process.env.NEXT_PUBLIC_USER_ID;
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
+    console.log("i'm here");
+    console.log(serviceId, templateId, userId);
     e.preventDefault();
     const data = {
       email: e.target.email.value,
       subject: e.target.subject.value,
       message: e.target.message.value,
     };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
+    // Send email using EmailJS
+    emailjs.send(serviceId, templateId, data, userId).then(
+      function (response) {
+        console.log("Email sent successfully:", response);
+        setEmailSubmitted(true);
       },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
-
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
-    }
+      function (error) {
+        console.error("Failed to send email:", error);
+      }
+    );
   };
 
   return (
