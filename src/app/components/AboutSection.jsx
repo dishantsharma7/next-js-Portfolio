@@ -41,6 +41,34 @@ const TAB_DATA = [
     ),
   },
   {
+    title: "Experience",
+    id: "experience",
+    content: (
+      // <ul className="list-disc pl-2">
+      //   <li>Node.js</li>
+      //   <li>ExpressJs</li>
+      //   <li>PostgreSQL</li>
+      //   <li>MongoDB</li>
+      //   <li>JavaScript</li>
+      //   <li>TypeScript</li>
+      //   <li>ReactJs</li>
+      //   <li>NextJs</li>
+      //   <li>HTML</li>
+      //   <li>CSS</li>
+      //   <li>Bootstrap</li>
+      // </ul>
+      <ul className="list-disc pl-2">
+        <li>SDE-I : CODE DRIVEN LABS (JUN 2024 - PRESENT)</li>
+        <br></br>
+        <li>
+          SOFTWARE DEVELOPER INTERN : CODE DRIVEN LABS (JAN 2024 - JUN 2024)
+        </li>
+        <br></br>
+        <li>OPERATIONS HEAD : NBLIK (JUL 2022 - AUG 2022)</li>
+      </ul>
+    ),
+  },
+  {
     title: "Education",
     id: "education",
     content: (
@@ -104,6 +132,13 @@ const AboutSection = () => {
             >
               {" "}
               Skills{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("experience")}
+              active={tab === "experience"}
+            >
+              {" "}
+              Experience{" "}
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("education")}
