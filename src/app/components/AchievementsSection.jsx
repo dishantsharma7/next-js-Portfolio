@@ -21,12 +21,14 @@ const achievementsList = [
     postfix: "+",
   },
   {
-    metric: "Awards",
-    value: "7",
+    metric: "Languages and Frameworks",
+    value: "5",
+    postfix: "+",
   },
   {
-    metric: "Years",
-    value: "5",
+    metric: "Years of Experience",
+    value: "1",
+    postfix: "+",
   },
 ];
 
