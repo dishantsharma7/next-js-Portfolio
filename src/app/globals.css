@@ -2,37 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "./base.css";
-@import "tailwindcss/utilities"; */
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    background-color: #0a0a0f;
+    color: #e0e0e0;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .scanlines {
+    position: relative;
+    overflow-x: hidden;
+  }
+  .scanlines::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 50;
+    background-size: 100% 3px, 6px 100%;
+    pointer-events: none;
+    animation: crt-flicker 0.15s infinite;
+  }
+
+  .crt-overlay {
+    animation: crt-flicker 0.15s infinite;
+  }
+
+  .border-cyber {
+    border-color: #00ff88;
+  }
+
+  .cyber-chamfer {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  }
+
+  .cyber-chamfer-sm {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+  }
+
+  .glow-magenta {
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+  }
+
+  .text-glow-green {
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.8);
+  }
+
+  .glitch {
+    animation: glitch 1s linear infinite;
+  }
+}
+
+@keyframes glitch {
+  2%, 64% { transform: translate(2px, 0) skew(0deg); }
+  4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+  62% { transform: translate(0, 0) skew(5deg); }
+}
+
+@keyframes crt-flicker {
+  0% { opacity: 0.95; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.98; }
 }

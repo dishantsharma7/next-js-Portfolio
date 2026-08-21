@@ -1,7 +1,9 @@
-import { Inter } from "next/font/google";
+import { Orbitron, Share_Tech_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const orbitron = Orbitron({ subsets: ["latin"], variable: '--font-orbitron' });
+const shareTechMono = Share_Tech_Mono({ weight: '400', subsets: ["latin"], variable: '--font-share' });
+const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: '--font-mono' });
 
 export const metadata = {
   title: "Dishant's Portfolio",
@@ -10,8 +12,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${orbitron.variable} ${shareTechMono.variable} ${jetBrainsMono.variable}`}>
+      <body className={`${jetBrainsMono.className} scanlines bg-background text-foreground min-h-screen max-w-full overflow-x-hidden`}>
+        {children}
+      </body>
     </html>
   );
 }

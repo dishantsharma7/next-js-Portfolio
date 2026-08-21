@@ -7,73 +7,83 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="lg:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-12">
+    <section className="md:py-16 pt-20">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
+          className="col-span-12 md:col-span-7 self-center w-full text-center md:text-left flex flex-col items-center md:items-start"
         >
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, I&apos;m{" "}
-            </span>
+          <h1 className="text-white mb-4 text-3xl sm:text-5xl md:text-6xl lg:text-8xl md:leading-normal font-extrabold font-orbitron glitch text-glow-green w-full" data-text="Hello, I'm">
+            Hello, I&apos;m
             <br></br>
-            <TypeAnimation
-              sequence={[
-                "Dishant",
-                1000,
-                "Web Developer",
-                1000,
-                "Programmer",
-                1000,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-            />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-secondary">
+              <TypeAnimation
+                sequence={[
+                  "Dishant",
+                  1000,
+                  "Developer",
+                  1000,
+                  "Programmer",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            </span>
           </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl"></p>
-          <div>
+          <p className="font-mono text-accent text-base sm:text-lg mb-6 lg:text-xl text-center md:text-left w-full">
+            <span className="mr-2 text-accent font-bold">&gt;</span>
+            Initializing core protocols... System ready.
+            <span className="animate-pulse ml-1">_</span>
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 items-center w-full justify-center md:justify-start">
             <Link
               href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
+              className="cyber-chamfer px-8 py-3 w-full max-w-[280px] sm:max-w-none sm:w-auto bg-[#00ff88] text-black font-mono uppercase font-bold text-center glow-green transition-all hover:bg-white"
             >
               Hire Me
             </Link>
 
-            {/* <Link
-              href="https://drive.google.com/file/d/1ARiOvxoAu16msoDQQcDw6tIsQQlHi-4E/view?usp=sharing"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
-            > */}
             <a
               target="_blank"
-              href="https://drive.google.com/file/d/1ARiOvxoAu16msoDQQcDw6tIsQQlHi-4E/view?usp=sharing"
+              href="https://drive.google.com/file/d/1q7A6Pk4-pcMID2l9zXxkjii-o_gvv4Zc/view?usp=sharing"
               rel="noopener noreferrer"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
+              className="cyber-chamfer px-8 py-3 w-full max-w-[280px] sm:max-w-none sm:w-auto border-2 border-[#ff00ff] text-[#ff00ff] font-mono uppercase font-bold text-center glow-magenta transition-all bg-transparent hover:bg-[#ff00ff]/10"
             >
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-                Preview Resume
-              </span>
+              Preview Resume
             </a>
-            {/* </Link> */}
           </div>
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-4 place-self-center mt-4 lg:mt-0"
+          className="col-span-12 md:col-span-5 place-self-center mt-8 md:mt-0 relative flex justify-center w-full"
         >
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
-            <Image
-              src="/images/hero.png"
-              alt="hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              width={300}
-              height={300}
-            />
+          {/* Holographic HUD panel */}
+          <div className="cyber-chamfer relative bg-muted/30 p-4 border border-cyber inline-block shadow-[0_0_20px_rgba(0,255,255,0.1)]">
+            {/* Corner accent markers */}
+            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-accent"></div>
+            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-accent"></div>
+            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-accent"></div>
+            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-accent"></div>
+
+            <div className="relative w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
+              <Image
+                src="/images/hero.png"
+                alt="hero image"
+                className="object-cover drop-shadow-[0_0_15px_rgba(0,255,136,0.6)]"
+                fill
+                sizes="(max-width: 768px) 250px, 350px"
+                priority
+              />
+              {/* Scanline overlay over the image */}
+              <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] opacity-30 z-10"></div>
+            </div>
           </div>
         </motion.div>
       </div>

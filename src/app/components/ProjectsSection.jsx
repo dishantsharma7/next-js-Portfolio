@@ -86,11 +86,15 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
-      </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+    <section id="projects" className="py-16">
+      <div className="flex flex-col items-center mb-8 md:mb-12">
+        <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] to-[#00ff88] tracking-normal sm:tracking-wider uppercase glitch" data-text="ACTIVE_DIRECTORIES">
+          ACTIVE_DIRECTORIES
+        </h2>
+        <div className="h-1 w-24 bg-[#ff00ff] mt-2 shadow-[0_0_10px_#ff00ff]"></div>
+      </div>
+
+      <div className="text-white flex flex-row flex-wrap justify-center items-center gap-2 sm:gap-4 py-6 mb-8">
         <ProjectTag
           onClick={handleTagChange}
           name="All"
@@ -102,14 +106,14 @@ const ProjectsSection = () => {
           isSelected={tag === "Web"}
         />
       </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
+      <ul ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
         {filteredProjects.map((project, index) => (
           <motion.li
             key={index}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
+            transition={{ duration: 0.3, delay: index * 0.15 }}
           >
             <ProjectCard
               key={project.id}
