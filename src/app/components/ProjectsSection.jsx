@@ -4,7 +4,9 @@ import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
-const projectsData = [
+import Link from "next/link";
+
+export const projectsData = [
   {
     id: 1,
     title: "Portfolio Website",
@@ -107,7 +109,7 @@ const ProjectsSection = () => {
         />
       </div>
       <ul ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-        {filteredProjects.map((project, index) => (
+        {filteredProjects.slice(0, 3).map((project, index) => (
           <motion.li
             key={index}
             variants={cardVariants}
@@ -126,6 +128,12 @@ const ProjectsSection = () => {
           </motion.li>
         ))}
       </ul>
+      
+      <div className="flex justify-center mt-12">
+        <Link href="/projects" className="inline-block px-8 py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#00d4ff] to-[#00ff88] hover:bg-slate-800 text-black font-semibold text-center transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(0,212,255,0.4)]">
+          Show More Projects
+        </Link>
+      </div>
     </section>
   );
 };
